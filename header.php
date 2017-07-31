@@ -17,6 +17,7 @@
     </script>
   </head>
   <body <?php body_class(); ?>>
+    <?php include_once("analyticstracking.php") ?>
     <div id="sidenav" class="sidenav">
       <div id="sidenav-content">
         <div id="sidenav-header">
