@@ -1,0 +1,94 @@
+/* The side navigation menu */
+#sidenav {
+	height: 100%; /* 100% Full-height */
+	width: 0; /* 0 width - change this with JavaScript */
+	position: fixed; /* Stay in place */
+	z-index: $zindex-popover; /* Stay on top */
+	top: 0;
+	left: 0;
+	background-color: #fff; /* Black*/
+	overflow-x: hidden; /* Disable horizontal scroll */
+	transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+
+	#sidenav-content{
+		padding: $spacer;
+
+		hr{
+			border-width: 3px;
+			border-color: #000;
+			margin: 8px 0;
+		}
+
+		#sidenav-header{
+			svg{
+				width: 180px;
+			}
+
+			a#close-btn {
+				position: absolute;
+				top: 20px;
+				right: $spacer;
+				font-size: 16px;
+				color: #000;
+				text-decoration: none;
+			}
+
+		}
+
+		ul{
+			> li{
+				border-bottom: 1px solid rgba(0,0,0,0.1);
+				> a{
+					text-transform: uppercase;
+					color: #000;
+					text-decoration: none;
+					display: block;
+					line-height: 50px;
+
+					&:hover{
+						color: $navbar-light-hover-color;
+					}
+				}
+				&.active{
+					> a{
+						color: $navbar-light-active-color;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main-content {
+	position: relative;
+	min-height: 100%;
+	transition: margin-left .5s;
+
+	#page-overlay{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		z-index: $zindex-popover;
+		background-color: rgba(0,0,0,0);
+		transition: background-color .8s;
+		pointer-events: none;
+	}	
+}
+
+body.visible-sidenav{
+	overflow: hidden;
+	
+	#sidenav{
+		width: 320px;
+	}
+	#main-content {
+		margin-left: 320px;
+
+		#page-overlay{
+			background-color: rgba(0,0,0,0.6);
+		}
+	}
+}

@@ -1,0 +1,145 @@
+$card_height: 250px !default;
+
+.negative-offset-top{
+	@include media-breakpoint-up(sm) {
+		margin-top: calc(#{-$card_height} + #{-$grid-gutter-width-base});
+	}
+}
+
+.negative-offset-bottom{
+	@include media-breakpoint-up(sm) {
+		margin-bottom: calc(#{-$card_height} + #{-$grid-gutter-width-base});
+	}
+}
+
+h2.custom-section-title{
+	text-align: center;
+	position: relative;
+	font-size: 25px;
+	font-weight: 600;
+	font-size: 4rem;
+	text-transform: uppercase;
+	color: #fff;
+	text-shadow: 5px 3px 0px rgba(0, 0, 0, 1);
+}
+
+article{
+	&.post-preview{
+		margin-bottom: $grid-gutter-width-base;
+		a{
+			display: block;
+			width: 100%;			
+			background: #aaa;
+			text-align: center;
+			text-decoration: none;
+			color: #fff;
+			height: $card_height;
+			background-size: cover;
+			background-position: center;
+
+			&.featured-rectangle-vertical{
+				height: calc((#{$card_height}*2) + #{$grid-gutter-width-base});
+			}
+
+			&.featured-rectangle-horizontal{
+			}
+
+			&:hover{
+				.display-table{
+					opacity: 0;
+				}
+			}
+		}
+
+		.display-table{
+			background-color: rgba(0,0,0, 0.25);			
+			padding: $spacer;	
+			opacity: 1;
+			transition: opacity 0.3s;
+
+			h1{
+				text-align: center;
+				color: #fff;
+				text-transform: uppercase;
+				font-weight: 500;
+			}
+
+			h2{
+				font-weight: 300;
+				font-size: 45px;
+			}
+
+			h3{
+				font-weight: 300;
+				font-size: 21px;
+			}
+
+			p{
+				font-size: 10px;
+				font-weight: 100;
+			}
+		}
+
+		&.cat-banner{
+			margin-bottom: 0;
+			height: 350px;
+			background: #aaa;
+			background-size: cover;
+			background-position: center;
+		}
+
+		&.featured-banner{
+			margin-bottom: 0;
+			a{
+				height: 552px;
+
+				.display-table{
+					opacity: 1;
+					background-color: transparent;
+					.display-table-cell{
+						vertical-align: bottom;
+						padding-bottom: 100px;
+
+						h2{
+							font-weight: 600;
+							font-size: 4rem;
+							text-transform: uppercase;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.entry-content{
+		@include clearfix;
+
+		p{
+			font-family: $font-family-serif;
+		}
+
+		h6{
+			font-size: $font-family-base;
+			padding-bottom: $spacer;
+			font-weight: $font-weight-normal;
+			line-height: $line-height-base;
+		}
+
+		img{
+			max-width: 100%;
+			height: auto;
+		}
+
+		> ul{
+			// Don't indent initial list
+			font-family: $font-family-serif;
+			padding-left: 15px;
+		}
+
+		> ol{
+			// Don't indent initial list
+			padding-left: 18px;
+			font-family: $font-family-serif;
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{
+  "name": "bootstrap-v4-wordpress-theme-boilerplate",
+  "version": "0.0.1",
+  "description": "Boilerplate for building wordpress themes using bootstrap v4 with a SASS compiler",
+  "license": "UNLICENSED",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:afgarcia86/bootstrap-v4-wordpress-theme-boilerplate.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "browser-sync": "^2.11.0"
+  }
+}

@@ -1,0 +1,350 @@
+%btn{
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: $input-btn-border-width solid transparent;
+  @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);
+  @include transition($btn-transition);
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: $btn-focus-box-shadow;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    cursor: $cursor-disabled;
+    opacity: .65;
+    @include box-shadow(none);
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+  }
+}
+
+%btn-block{
+  display: block;
+  width: 100%;
+}
+
+%btn-sm{
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
+}
+
+%btn-primary{
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+%btn-secondary{
+  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+%btn-danger{
+  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
+%collapsing{
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  @include transition($transition-collapse);
+}
+
+%figure-img{
+  margin-bottom: ($spacer-y / 2);
+  line-height: 1;
+}
+
+%figure-caption{
+  font-size: $figure-caption-font-size;
+  color: $figure-caption-color;
+}
+
+%rounded{
+  @include border-radius($border-radius);
+}
+
+%row{
+  @include make-row();
+}
+
+%col-12{
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 ($grid-gutter-width-base/2);
+}
+
+%col-6{
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 ($grid-gutter-width-base/2);
+}
+
+%col-md-6{
+  @include media-breakpoint-up(md) {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 ($grid-gutter-width-base/2);
+  }
+}
+
+%col-8{
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 66.666666%;
+  -ms-flex: 0 0 66.666666%;
+  flex: 0 0 66.666666%;
+  max-width: 66.666666%;
+  padding: 0 ($grid-gutter-width-base/2);
+}
+
+%col-4{
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 33.333333%;
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+  padding: 0 ($grid-gutter-width-base/2);
+}
+
+%col-md-4{
+  @include media-breakpoint-up(md) {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.333333%;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    padding: 0 ($grid-gutter-width-base/2);
+  }
+}
+
+%col-3{
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 25%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 0 ($grid-gutter-width-base/2);
+}
+
+%col-lg-3{
+  @include media-breakpoint-up(lg) {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 0 ($grid-gutter-width-base/2);
+  }
+}
+
+%col-lg-2{
+  @include media-breakpoint-up(lg) {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 16.666666%;
+    -ms-flex: 0 0 16.666666%;
+    flex: 0 0 16.666666%;
+    max-width: 16.666666%;
+    padding: 0 ($grid-gutter-width-base/2);
+  }
+}
+
+%nav{
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+%nav-tabs{
+  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+}
+
+%nav-item{
+  margin-bottom: -$nav-tabs-border-width;
+}
+
+%nav-link{
+  display: block;
+  padding: $nav-link-padding;
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  // Disabled state lightens text and removes hover/tab effects
+  &.disabled {
+    color: $nav-disabled-link-color;
+    cursor: $cursor-disabled;
+  }
+}
+
+%progress {
+  display: flex;
+  overflow: hidden; // force rounded corners by cropping it
+  font-size: $progress-font-size;
+  line-height: $progress-height;
+  text-align: center;
+  background-color: $progress-bg;
+  @include border-radius($progress-border-radius);
+}
+
+%progress-bar{
+  height: $progress-height;
+  color: $progress-bar-color;
+  background-color: $progress-bar-bg;
+}
+
+%pagination{
+  display: flex;
+  // 1-2: Disable browser default list styles
+  padding-left: 0; // 1
+  list-style: none; // 2
+  @include border-radius();
+}
+
+%page-link {
+  position: relative;
+  display: block;
+  padding: $pagination-padding-y $pagination-padding-x;
+  margin-left: -1px;
+  line-height: $pagination-line-height;
+  color: $pagination-color;
+  background-color: $pagination-bg;
+  border: $pagination-border-width solid $pagination-border-color;
+
+  @include hover-focus {
+    color: $pagination-hover-color;
+    text-decoration: none;
+    background-color: $pagination-hover-bg;
+    border-color: $pagination-hover-border;
+  }
+}
+
+%alert{
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  border: $alert-border-width solid transparent;
+  @include border-radius($alert-border-radius);
+}
+
+%alert-danger {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+
+%form-group {
+  margin-bottom: $form-group-margin-bottom;
+}
+
+%form-control {
+  display: block;
+  width: 100%;
+  // // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  // height: $input-height;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214.
+  background-image: none;
+  background-clip: padding-box;
+  border: $input-btn-border-width solid $input-border-color;
+
+  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+  @if $enable-rounded {
+    // Manually use the if/else instead of the mixin to account for iOS override
+    border-radius: $input-border-radius;
+  } @else {
+    // Otherwise undo the iOS default
+    border-radius: 0;
+  }
+
+  @include box-shadow($input-box-shadow);
+  @include transition($input-transition);
+
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  @include form-control-focus();
+
+  // Placeholder
+  &::placeholder {
+    color: $input-color-placeholder;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &:disabled,
+  &[readonly] {
+    background-color: $input-bg-disabled;
+    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: $cursor-disabled;
+  }
+}
+
+%has-danger {
+  @include form-control-validation($brand-danger);
+}
+
+%form-control-danger {
+  border-color: $brand-danger;
+  background-image: $form-icon-danger;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  background-position: right 8px;
+}
+
+%form-control-label {
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.display-table{
+  display: table;
+  width: 100%;
+  height: 100%;
+  
+  .display-table-cell{
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.text-sans-serif{
+  font-family: $font-family-sans-serif;
+}

@@ -1,0 +1,719 @@
+.gform_wrapper{
+	&.inline_form_wrapper{
+		.gform_body{
+			margin: 0 0 $spacer;
+
+			@include media-breakpoint-up(sm) {
+				width: calc(100% - 75px);
+				float: left;
+				margin: 0;
+			}
+
+			ul.gform_fields{
+				padding: 0;
+				margin: 0;
+				> li.gfield{
+					margin: 0;
+					padding: 0;
+					label.gfield_label{
+						display: none;
+					}
+
+					.validation_message{
+						color: #fff;
+					}
+
+					div.ginput_container{
+						input[type="text"]{
+							background-color: transparent;
+							border: 0;
+							border-bottom: 1px solid #fff;
+							padding: 0;
+							height: 40px;
+							text-align: center;
+
+							@include media-breakpoint-up(sm) {
+								text-align: left;
+							}
+
+							&::placeholder{
+								color: #fff;
+								text-transform: uppercase;
+							}
+						}
+					}
+				}
+			}
+		}
+		.gform_footer{
+			padding: 0;
+			margin: 0;
+			border: 0;
+			text-align: center;
+
+			@include media-breakpoint-up(sm) {
+				padding-left: 30px;
+				float: left;
+			}			
+
+			.button{
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				padding: 0;
+				background-color: transparent;
+				border: 1px solid #fff;
+				color: #fff;
+
+				@include media-breakpoint-down(sm) {	
+					margin-bottom: $spacer;
+				}
+
+				&:focus{
+					box-shadow: none;
+				}
+			}
+		}
+	}
+
+	.gform_heading{
+
+		h3{
+			color: $brand-primary;
+			font-size: 2rem;
+		}
+
+		.gform_description{
+			display: block;
+			padding-bottom: $spacer;
+		}
+
+	}
+	.validation_error{
+		@extend %alert;
+		@extend %alert-danger;
+	}
+	.gform_body{
+		@extend %row;
+
+		ul.gform_fields{
+			@include list-unstyled;
+			@include clearfix;
+			margin-bottom: 0;
+			width: 100%;
+
+
+			> li.gfield{
+				@extend %form-group;
+				@extend %col-12;
+
+				&.gf_left_half,
+				&.gf_right_half{
+					@extend %col-md-6;
+				}
+
+				&.gform_validation_container{
+					display: none !important;
+			    left: -9000px;
+			    position: absolute !important;
+				}
+
+				&.gfield_error{
+					@extend %has-danger;
+
+					> label{
+						@extend %form-control-label;
+						padding-left: 0;
+					}
+
+					.ginput_container{
+						input[type="text"],
+						input[type="email"],
+						input[type="password"],
+						input[type="number"],
+						textarea{
+							@extend %form-control-danger;
+						}
+
+						.file{
+							.file-custom{
+								border-color: $brand-danger;
+								&::before{
+									background-color: $brand-danger;
+									border-color: $brand-danger;
+									color: #fff;
+								}
+							}
+						}
+					}
+				}
+
+				label.gfield_label{
+					span.gfield_required{
+						color: $brand-danger;
+					}
+				}
+
+				.gfield_description{
+					color: $text-muted;
+				}
+
+				.validation_message{
+					color: $brand-danger;
+				}
+
+				.clear-multi{
+					@extend %row;
+					.ginput_container_date,
+					.ginput_container_time{
+						@extend %col-4;
+
+						&.gfield_time_hour{
+							i{
+								position: absolute;
+						    right: -1px;
+						    top: 5px;
+							}
+						}
+					}
+				}
+
+				.gfield_creditcard_warning_message{
+					color: $brand-danger;
+				}
+				
+				.ginput_preview{
+					img.gform_delete{
+						position: relative;
+						top: -1px;
+					}
+					strong{
+						font-weight: normal;
+					}
+				}
+
+				.ginput_container{
+					position: relative;
+
+					label, .instruction{
+						color: $text-muted;
+					}
+
+					input[type="text"],
+					input[type="email"],
+					input[type="password"],
+					input[type="number"],
+					textarea,
+					select{
+						font-family: 'Open Sans', sans-serif;
+						font-weight: bold;
+						@extend %form-control;
+					}
+
+					.textarea{
+						&.small{
+							height: 80px;
+						}
+						&.medium{
+							height: 150px;
+						}
+						&.large{
+							height: 300px;
+						}
+					}
+
+					ul.gfield_radio,
+					ul.gfield_checkbox{
+						@include list-unstyled;
+
+						> li{
+							input[type="radio"]{
+								top: -2px;
+								position: relative;
+								margin: 0 7px 0 0;
+							}
+							input[type="checkbox"]{
+								top: -2px;
+								position: relative;
+								margin: 0 3px 0 0;
+							}
+							input[type="radio"] + label,
+							input[type="checkbox"] + label{
+								color: $body-color;
+							}
+							input[type="radio"]:checked + label,
+							input[type="checkbox"]:checked + label{
+								color: $body-color;
+								font-weight: bold;
+							}
+						}
+					}
+
+					img.ui-datepicker-trigger{
+						position: absolute;
+						top: 10px;
+						right: 10px;
+					}
+
+					.ginput_product_price{
+						color: $brand-danger;
+					}
+
+					.ginput_total{
+						color: $brand-success;
+						font-size: 1.2em;
+					}
+
+				  .file{
+						display: block;
+
+						.file-custom{
+							&::after{
+								content: attr(data-file);
+							}
+						}
+					}
+
+					&.ginput_container_list{
+						table{
+							width: 100%;
+
+							tbody{
+								tr.gfield_list_group{
+									td.gfield_list_cell{
+										padding-bottom: $spacer;
+									}
+									td.gfield_list_icons{
+										width: 50px;
+										text-align: center;
+										padding-bottom: $spacer;
+									}
+								}
+							}
+						}
+					}
+
+					&.ginput_complex{
+						@extend %row;
+
+						&.ginput_container_name{
+							&.gf_name_has_2{
+								span{
+									@extend %col-6;
+								}
+							}
+							&.gf_name_has_3{
+								span{
+									@extend %col-4;
+								}
+							}
+							&.gf_name_has_4{
+								span{
+									@extend %col-3;
+								}
+							}
+							&.gf_name_has_5{
+								span{
+									@extend %col-12;
+									width: 20% !important;
+								}
+							}
+						}
+
+						&.ginput_container_address{
+							@extend %row;
+
+							.ginput_full{
+								@extend %col-12;
+							}
+
+							.ginput_left,
+							.ginput_right{
+								@extend %col-6;
+							}
+						}
+
+						&.ginput_container_creditcard{
+							@extend %row;
+
+							.gform_card_icon_container{
+								margin-bottom: $spacer / 2;
+								@include clearfix;
+
+								.gform_card_icon{
+							    background-image: url('images/gf-creditcard-icons.png');
+							    background-repeat: no-repeat;
+							    float: left;
+							    height: 32px;
+							    margin-right: 4px;
+							    text-indent: -9000px;
+							    width: 36px;
+
+									&.gform_card_icon_visa {
+									    background-position: 0 0;
+									}
+									&.gform_card_icon_selected.gform_card_icon_visa {
+									    background-position: 0 -32px;
+									}
+									&.gform_card_icon_inactive.gform_card_icon_visa {
+									    background-position: 0 -64px;
+									}
+									&.gform_card_icon_mastercard {
+									    background-position: -36px 0;
+									}
+									&.gform_card_icon_selected.gform_card_icon_mastercard {
+									    background-position: -36px -32px;
+									}
+									&.gform_card_icon_inactive.gform_card_icon_mastercard {
+									    background-position: -36px -64px;
+									}
+									&.gform_card_icon_amex {
+									    background-position: -72px 0;
+									}
+									&.gform_card_icon_selected.gform_card_icon_amex {
+									    background-position: -72px -32px;
+									}
+									&.gform_card_icon_inactive.gform_card_icon_amex {
+									    background-position: -72px -64px;
+									}
+									&.gform_card_icon_discover {
+									    background-position: -108px 0;
+									}
+									&.gform_card_icon_selected.gform_card_icon_discover {
+									    background-position: -108px -32px;
+									}
+									&.gform_card_icon_inactive.gform_card_icon_discover {
+									    background-position: -108px -64px;
+									}
+									&.gform_card_icon_maestro {
+									    background-position: -144px 0;
+									}
+									&.gform_card_icon_selected.gform_card_icon_maestro {
+									    background-position: -144px -32px;
+									}
+									&.gform_card_icon_inactive.gform_card_icon_maestro {
+									    background-position: -144px -64px;
+									}
+									&.gform_card_icon_jcb {
+									    background-position: -180px 0;
+									}
+									&.gform_card_icon_selected.gform_card_icon_jcb {
+									    background-position: -180px -32px;
+									}
+									&.gform_card_icon_inactive.gform_card_icon_jcb {
+									    background-position: -180px -64px;
+									}
+								}
+
+								&.gform_card_icon_style2{
+									.gform_card_icon{
+										&.gform_card_icon_visa {
+										    background-position: 0 -192px;
+										}
+										&.gform_card_icon_selected.gform_card_icon_visa {
+										    background-position: 0 -224px;
+										}
+										&.gform_card_icon_inactive.gform_card_icon_visa {
+										    background-position: 0 -256px;
+										}
+										&.gform_card_icon_mastercard {
+										    background-position: -36px -192px;
+										}
+										&.gform_card_icon_selected.gform_card_icon_mastercard {
+										    background-position: -36px -224px;
+										}
+										&.gform_card_icon_inactive.gform_card_icon_mastercard {
+										    background-position: -36px -256px;
+										}
+										&.gform_card_icon_amex {
+										    background-position: -72px -192px;
+										}
+										&.gform_card_icon_selected.gform_card_icon_amex {
+										    background-position: -72px -224px;
+										}
+										&.gform_card_icon_inactive.gform_card_icon_amex {
+										    background-position: -72px -256px;
+										}
+										&.gform_card_icon_discover {
+										    background-position: -108px -192px;
+										}
+										&.gform_card_icon_selected.gform_card_icon_discover {
+										    background-position: -108px -224px;
+										}
+										&.gform_card_icon_inactive.gform_card_icon_discover {
+										    background-position: -108px -256px;
+										}
+										&.gform_card_icon_maestro {
+										    background-position: -144px -192px;
+										}
+										&.gform_card_icon_selected.gform_card_icon_maestro {
+										    background-position: -144px -224px;
+										}
+										&.gform_card_icon_inactive.gform_card_icon_maestro {
+										    background-position: -144px -256px;
+										}
+										&.gform_card_icon_jcb {
+										    background-position: -180px -192px;
+										}
+										&.gform_card_icon_selected.gform_card_icon_jcb {
+										    background-position: -180px -224px;
+										}
+										&.gform_card_icon_inactive.gform_card_icon_jcb {
+										    background-position: -180px -256px;
+										}
+									}
+								}
+							}
+
+							.ginput_full:not(.ginput_cardextras){
+								@extend %col-12;
+
+							}
+
+							.ginput_full.ginput_cardextras{
+								@extend %row;
+								width: 100%;
+								margin: 0;
+							}
+
+							.ginput_cardinfo_left{
+								@extend %col-8;
+
+								.ginput_card_expiration_container{
+									@include clearfix;
+									select{
+										&.ginput_card_expiration_month{
+											width: calc(50% - #{$spacer});
+											// width: 50%;
+											// padding-right: $spacer;
+											float: left;
+										}
+										&.ginput_card_expiration_year{
+											width: calc(50% - #{$spacer});
+											// width: 50%;
+											// padding-left: $spacer;
+											float: right;
+										}
+									}
+									.select2{
+										width: calc(50% - #{$spacer}) !important;
+										float: left;
+
+										&:first-of-type{
+											margin-right: $spacer * 2;
+										}
+									}
+								}
+							}
+							.ginput_cardinfo_right{
+								@extend %col-4;
+
+								span.ginput_card_security_code_icon {
+							    background-image: url('images/gf-creditcard-icons.png');
+							    background-position: 0 -128px;
+							    background-repeat: no-repeat;
+							    display: inline-block;
+							    height: 23px;
+							    right: 22px;
+							    position: absolute;
+							    top: 7px;
+							    width: 32px;
+								}
+							}
+						}
+					}
+				}
+				&.gsection{
+					border-bottom: $hr-border-width solid $hr-border-color;
+					padding-bottom: $spacer;
+					border-top: $hr-border-width solid $hr-border-color;
+					padding-top: $spacer;
+				}
+
+				&.gfield_html{}
+
+				@include media-breakpoint-up(md) {
+					&.gf_list_inline{
+						.ginput_container{
+							ul.gfield_radio,
+							ul.gfield_checkbox{
+
+								> li{
+									display: inline-block;
+									margin-right: 0.75rem;
+								}
+							}
+						}
+					}
+				}
+
+				&.gf_list_2col{
+					.ginput_container{
+						ul.gfield_radio,
+						ul.gfield_checkbox{
+							@extend %row;
+							> li{
+								@extend %col-6;
+							}
+						}
+					}
+				}
+
+				&.gf_list_3col{
+					.ginput_container{
+						ul.gfield_radio,
+						ul.gfield_checkbox{
+							@extend %row;
+							> li{
+								@extend %col-6;
+								@extend %col-md-4;
+							}
+						}
+					}
+				}
+
+				&.gf_list_4col{
+					.ginput_container{
+						ul.gfield_radio,
+						ul.gfield_checkbox{
+							@extend %row;
+							> li{
+								@extend %col-6;
+								@extend %col-md-4;
+								@extend %col-lg-3;
+							}
+						}
+					}
+				}
+
+				&.gf_list_5col{
+					.ginput_container{
+						ul.gfield_radio,
+						ul.gfield_checkbox{
+							@extend %row;
+							> li{
+								@extend %col-6;
+								@extend %col-md-4;
+								@include media-breakpoint-up(xl) {
+									width: 20% !important;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+	.gform_footer{
+		text-align: right;
+
+		@include media-breakpoint-down(sm) {
+			text-align: center;
+		}
+
+		.button{
+			font-family: 'Open Sans', sans-serif;
+			font-weight: bold;
+			@extend %btn;
+			@extend %btn-primary;
+		}
+	}
+
+	.gf_page_steps{
+		@extend %nav;
+		@extend %nav-tabs; // nav-tabs or nav-pills
+		margin-bottom: $spacer;
+
+		.gf_step{
+			@extend %nav-item;
+			@extend %nav-link;
+
+			pointer-events: none;
+
+			&.gf_step_active{
+				color: $brand-primary;
+			}
+
+			span{
+				&.gf_step_number{
+					@include border-radius(50%);
+					font-size: 9px;
+					width: 16px;
+					height: 16px;
+					line-height: 14px;
+					text-align: center;
+					color: $gray-light;
+					border: 1px solid $gray-light;
+					display: inline-block;
+					margin-right: 4px;
+				}
+				&.gf_step_label{
+					
+				}
+			}
+		}
+	}
+
+	.gf_progressbar_wrapper{
+		h3.gf_progressbar_title{
+
+		}
+		.gf_progressbar{
+			@extend %progress;
+			background-color: $progress-bg;
+			overflow: hidden;
+			.gf_progressbar_percentage{
+				@extend %progress-bar;
+
+				// Add Stripes
+				@include gradient-striped();
+  			background-size: $spacer-y $spacer-y;
+
+  			// Animate it
+  			animation: progress-bar-stripes 2s linear infinite;
+
+				height: 100%;
+				&.percentbar_blue{
+					background-color: $progress-bar-bg;
+				}
+				&.percentbar_gray{
+					background-color: $gray;
+				}
+				&.percentbar_green{
+					background-color: $brand-success;
+				}
+				&.percentbar_orange{
+					background-color: $brand-warning;
+				}
+				&.percentbar_red{
+					background-color: $brand-danger;
+				}
+				span{
+					display: none;
+				}
+			}
+		}
+	}
+	.gform_page_footer{
+		@include clearfix;
+		border-top: $hr-border-width solid $hr-border-color;
+	  padding-top: $spacer;
+
+		.button{
+			font-family: 'Open Sans', sans-serif;
+			font-weight: bold;
+			@extend %btn;
+			@extend %btn-secondary;
+
+			&.gform_next_button{
+				float: right;
+			}
+
+			&.gform_button{
+				@extend %btn-primary;
+				float: right; 
+			}
+		}
+	}
+}

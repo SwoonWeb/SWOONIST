@@ -1,0 +1,125 @@
+body{
+  position: relative;
+}
+
+#primary{
+	padding: 50px 0;
+}
+
+.btn{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+
+svg.swoon-logo{
+  max-width: 420px;
+  margin: 0 auto;
+  display: block;
+}
+
+.bg-black{
+  background-color: #000 !important;
+}
+
+ul#social-media{
+  > li {
+    > a{
+      padding: 0 5px;
+      font-size: 19px;
+    }
+  }
+}
+
+#footer-newsletter{
+  background-color: $swoonist-gray;
+  .footer-spacer{
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  h4{
+    line-height: 40px;
+    text-transform: uppercase;
+    font-size: 26px;
+    color: #fff;
+  }
+}
+
+form.search-form{
+  .input-group{
+    .form-control{
+      border-color: #fff;
+    }
+    .input-group-btn{
+      .btn{
+        border-color: #fff;
+      }
+    }
+  }
+}
+
+.footer-logo{
+  margin: 30px 0;
+
+
+  #footer-logo{
+    border: 1px solid #000;
+    padding: 20px;
+  }
+}
+
+#footer {
+  background-color: #fff;
+
+  .copyright{
+    font-size: 12px;
+  }
+
+  ul.footer-menu{
+
+    &.footer-menu-2{
+      margin-bottom: 0;
+      > li{
+        > a{
+          color: $text-muted;
+          text-transform: none;
+          font-size: 12px;
+        }
+      }
+    }
+
+    > li{
+      line-height: 26px;
+      display: inline-block;
+      > a{
+        color: #000;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-decoration: none;
+
+        &:after{
+          content: ' | ';
+        }
+      }
+
+      &:last-child{
+        > a{
+          &:after{
+            content: '';
+          }
+        }
+      }
+    }
+  }
+}
+
+.post-preview-img{
+  height: 300px;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-color: #ccc;
+}
